@@ -28,4 +28,6 @@ ide/static/bundle/
 
 .vscode/
 
+models/
+
 celerybeat-schedule
