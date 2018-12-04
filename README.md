@@ -209,6 +209,12 @@ To install Docker for Mac [click here](https://docs.docker.com/docker-for-mac/in
     webpack --progress --watch --colors
     ```
 
+9. Install HDFS
+    '''
+    sudo apt-get install rsync
+    install java
+
+    '''
 9. Start celery worker
 
     ```
