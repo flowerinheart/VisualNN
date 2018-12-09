@@ -1,3 +1,26 @@
+#sidebar-scroll>.text-center{height:60px;padding:10px 10px 10px 10px;}
+
+.form-control{border-radius: 0.5px;}
+.clear{clear:both;height:0px;} 
+#train{
+ 	
+ 	width : 100px;
+ 	float:left;
+ 	height:30px;
+ 	border-radius:0.5px;
+ 	font-weight:bold;	
+}
+
+#test{
+ 	
+ 	width : 100px;
+ 	float:left;
+ 	height:30px;
+ 	border-radius:0.5px;
+ 	font-weight:bold;	
+}
+
+
 #jsplumbContainer {
   position: absolute;
   transform-origin: top left;
@@ -15,14 +38,14 @@ body {
 
 #sidebar {
     position: fixed;
-    top: 0px;
+    top: 60px;
     left: 0px;
     bottom: 0px;
     width: 20%;
     background-color: #F3F3F3;
 }
 #sidebar-scroll {
-  height: calc(100% - 50px);
+  height: calc(100%);
   overflow-y: auto;
 }
 #sidebar-content{
@@ -38,7 +61,7 @@ body {
 
 .sidebar-badge{
   padding: 10px;
-  border-radius: 3px;
+  border-radius: 0.5px;
   margin-right: 10px;
 }
 
@@ -54,7 +77,7 @@ body {
 }
 
 #parent {
-    margin-left: 20%;
+    margin-left: 0%;
     background-color: blue;
 }
 
@@ -63,7 +86,7 @@ body {
   width: 80%;
   display: flex;
   flex-flow: column;
-  top: 0px;
+  top: 60px;
   left: 20%;
   bottom: 0px;
   position: absolute;
@@ -79,7 +102,7 @@ body {
 #topbar-icon{
   width: 40px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 0.5px;
   background-color: #cdcfd2;
   box-shadow:none ;
   border: none;
@@ -140,7 +163,7 @@ input#netName.hidden {
 .canvas-icon > button{
   width: 40px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 0.5px;
   background-color: #cdcfd2;
   box-shadow:none ;
   border: none;
@@ -166,7 +189,7 @@ input#netName.hidden {
 #modelParameter > #content{
   width: 100px;
   height: 30px;
-  border-radius: 5px;
+  border-radius: 0.5px;
   text-align: center;
   background-color: #cdcfd2;
   box-shadow:none ;
@@ -266,7 +289,26 @@ input#netName.hidden {
   width: 100%;
   margin: 0px;
   background-color: #455062;
+
+  
 }
+
+#logo1{
+
+  max-height: 60px;
+  margin: 0 auto;
+  padding: 5px 5px 5px 35px;
+  float:left;
+
+  }
+#logo2{
+
+  max-height: 60px;
+  margin: 0 auto;
+  padding: 10px 10px 10px 10px;
+  float:right;
+
+  }
 
 #logo{
   max-height: 50px;
@@ -275,22 +317,22 @@ input#netName.hidden {
   }
 
 .btn-primary{
-  background-color: #455062;
-  border-color: #455062;
+  background-color: #7ad2ff;
+  border-color: #7ad2ff;
   box-shadow: none;
   outline: none
 }
 
 .btn-primary:hover {
-  background-color: #455062;
-  border-color: #455062;
+  background-color: #7ad2ff;
+  border-color: #7ad2ff;
   box-shadow: none;
   outline: none;
 }
 
 .btn-primary:focus {
-  background-color: #455062;
-  border-color: #455062;
+  background-color: #7ad2ff;
+  border-color: #7ad2ff;
   outline: none;
 }
 
@@ -355,8 +397,8 @@ input#netName.hidden {
   height: 20px;
   top: 0;
   left: 0;
-  background: #f26091;
-  border-radius: 3px;
+  background: #85d7ff;
+  border-radius: 0.5px;
 }
 
 .paramsCheckbox label:after {
@@ -387,11 +429,12 @@ input#netName.hidden {
 }
 
 .deleteLayerButton{
-  background: #f26091;
+  background: #85d7ff;
   color: white;
   bottom: 5%;
   width: 100%;
   padding: 7px;
+  border-radius: 0.5px;
 }
 
 .dropdown {
@@ -1162,7 +1205,7 @@ input[type="file"] {
 
   .sidebar-button {
     position: absolute;
-    top: 1rem;
+    top: 6rem;
     left: 1rem;
     width: 3rem;
     height: 3rem;

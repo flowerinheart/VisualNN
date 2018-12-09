@@ -72,7 +72,7 @@ changeEvent(cbid) {
     render() {
       return (
             <div>
-              <input id="layer-search-input" placeholder="Search for layer"></input>
+              <input id="layer-search-input" placeholder="查找网络结构"></input>
               <i className="material-icons" id="layer-search-icon">search</i>
               <div className="form-group pull-right">
                 <div className="dropdown">
@@ -92,12 +92,14 @@ changeEvent(cbid) {
                         <input type="checkBox" id="filterCheckBox_TensorFlow" onClick={this.changeEvent.bind(this, "filterCheckBox_TensorFlow")} />
                         </a>
                     </li>
+{/*
                     <li>
                         <a className="btn" onClick={this.changeEvent.bind(this, "filterCheckBox_Caffe")}>
                         <label className="filter">Caffe</label>
                         <input type="checkBox" id="filterCheckBox_Caffe" onClick={this.changeEvent.bind(this, "filterCheckBox_Caffe")} />
                         </a>
                     </li>
+*/}
                   </ul>
                 </div>
               </div>

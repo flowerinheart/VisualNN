@@ -9,7 +9,7 @@ import data from './data';
 import netLayout from './netLayout_vertical';
 import Modal from 'react-modal';
 import ModelZoo from './modelZoo';
-import Login from './login';
+
 import ImportTextbox from './importTextbox';
 import UrlImportModal from './urlImportModal';
 import UserProfile from './UserProfile';
@@ -1291,13 +1291,15 @@ class Content extends React.Component {
     }
     return (
         <div id="parent">
+        <div id="logo_back">
+					<a href="http://fabrik.cloudcv.org"><img src={'/static/img/dislab.png'} className="img-responsive" alt="logo" id="logo1"/></a>
+					<a href="http://dislab.nju.edu.cn"><img src={'/static/img/fabrik_t.png'} className="img-responsive" alt="logo" id="logo2"/></a>
+				<div className="clear"></div>
+				</div>
         <a className="sidebar-button" onClick={this.toggleSidebar}></a>
         <div id="sidebar">
-          <div id="logo_back">
-            <a href="http://fabrik.cloudcv.org"><img src={'/static/img/fabrik_t.png'} className="img-responsive" alt="logo" id="logo"/></a>
-          </div>
           <div id="sidebar-scroll" className="col-md-12">
-             <h5 className="sidebar-heading">ACTIONS</h5>
+             <h5 className="sidebar-heading">操作</h5>
              <TopBar
               exportNet={this.exportNet}
               importNet={this.importNet}
@@ -1307,8 +1309,11 @@ class Content extends React.Component {
               urlModal={this.urlModal}
               updateHistoryModal={this.updateHistoryModal}
              />
-             <Login setUserId={this.setUserId} setUserName={this.setUserName}></Login>
-             <h5 className="sidebar-heading">INSERT LAYER</h5>
+             
+             <div className="text-center">
+             <Tabs selectedPhase={this.state.selectedPhase} changeNetPhase={this.changeNetPhase} />
+             </div>
+             <h5 className="sidebar-heading">插入网络层</h5>
              <div className="sidebar-heading">
              <FilterBar />
              </div>
@@ -1316,14 +1321,7 @@ class Content extends React.Component {
              handleClick = {this.handleClick}
              setDraggingLayer = {this.setDraggingLayer}
              />
-             <div className="text-center">
-             <Tabs selectedPhase={this.state.selectedPhase} changeNetPhase={this.changeNetPhase} />
-             </div>
-             <h5 className="sidebar-heading">EXTRAS</h5>
-             <a className="btn btn-block extra-buttons text-left" onClick={this.faqModal}>Help</a>
-             <a className="btn btn-block extra-buttons text-left" href="https://github.com/Cloud-CV/Fabrik" target="_blank">GitHub</a>
-             <a className="btn btn-block extra-buttons text-left" href="http://cloudcv.org" target="_blank">CloudCV</a>
-             <a className="btn btn-block extra-buttons text-left" onClick={this.infoModal}>About Us</a>
+
           </div>
         </div>
       <div id="main">

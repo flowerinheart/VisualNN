@@ -27,6 +27,7 @@ class TopBar extends React.Component {
                     </div>
                   </div>);
     }
+{/*
     else {
       content = (<div className="topbar-col">
                     <div className="form-group">
@@ -37,6 +38,7 @@ class TopBar extends React.Component {
                     </div>
                   </div>);
     }
+*/}
     return (
       <div className="topBar">
         <div className="topbar-row">
