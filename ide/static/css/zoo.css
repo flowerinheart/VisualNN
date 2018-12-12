@@ -2,9 +2,7 @@ body {
     overflow-x: hidden;
  }
 
-#wrapper {
-    padding-left: 250px;
-}
+
 
 #sidebar-wrapper {
     z-index: 1000;
