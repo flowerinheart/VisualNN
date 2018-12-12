@@ -389,7 +389,7 @@ class Canvas extends React.Component {
     const info = this.props.info;
     let placeholder = null;
     if (this.placeholder){
-      placeholder = (<h4 className="text-center" id="placeholder">Load an existing model from the folder dropdown</h4>)
+      placeholder = (<h4 className="text-center" id="placeholder">从下拉文件夹中加载现有模型</h4>)
     }
     Object.keys(net).forEach(layerId => {
       const layer = net[layerId];
@@ -483,19 +483,19 @@ class Canvas extends React.Component {
         {layers}
       </div>
       <div id='modelParameter'>
-        <p>Total Parameters</p>
+        <p>&nbsp; &nbsp; &nbsp; 参数总量</p>
         <div id="content">
           {this.props.totalParameters}
         </div>
       </div>
       <div id='icon-plus' className="canvas-icon">
-        <p>Press ]</p>
+        
         <button className="btn btn-default text-center" id='btn-plus' disabled={this.disableZoom}>
             <span className="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
       </div>
       <div id='icon-minus' className="canvas-icon">
-        <p>Press [</p>
+        
           <button className="btn btn-default text-center" id='btn-minus' disabled={this.disableZoom}>
             <span className="glyphicon glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>

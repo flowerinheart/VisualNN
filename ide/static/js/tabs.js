@@ -23,8 +23,8 @@ class Tabs extends React.Component {
     }
     return (
       <li className="btn-group" role="group" id="phaseTabs">
-        <button type="button" id="train" className={"btn "+trainClass}>Train</button>
-        <button type="button" id="test" className={"btn "+testClass}>Test</button>
+        <button type="button" id="train" className={"btn "+trainClass}>训练</button>
+        <button type="button" id="test" className={"btn "+testClass}>测试</button>
       </li>
     );
   }

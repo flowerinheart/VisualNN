@@ -7,6 +7,8 @@ class ModelZoo extends React.Component {
     this.mouseClick = this.mouseClick.bind(this);
     }
     mouseClick(event, id) {
+      this.refs.mymodels.className = "hide";
+{/*
       this.refs.recognition.className = "hide";
       this.refs.detection.className = "hide";
       this.refs.retrieval.className = "hide";
@@ -14,16 +16,19 @@ class ModelZoo extends React.Component {
       this.refs.caption.className = "hide";
       this.refs.segmentation.className = "hide";
       this.refs.vqa.className = "hide";
+*/}
       $('#sidebar-nav li a').removeClass();
       event.currentTarget.className = "bold";
       if (id == "all") {
-        this.refs.recognition.className = " ";
+        this.refs.mymodels.className = " ";
+{/*
         this.refs.detection.className = " ";
         this.refs.retrieval.className = " ";
         this.refs.seq2seq.className = " ";
         this.refs.caption.className = " ";
         this.refs.segmentation.className = " ";
         this.refs.vqa.className = " ";
+*/}
       } 
       else if (id == "recognition")
       {
@@ -102,12 +107,13 @@ class ModelZoo extends React.Component {
           <div id="sidebar-wrapper">
             <ul id="sidebar-nav" className="sidebar-nav">
                 <div className="filterbar-container">
-                  <input id="model-search-input" placeholder="Search for model"></input>
+                  <input id="model-search-input" placeholder="查找模型"></input>
                   <i className="material-icons" id="model-search-icon">search</i>
                 </div>
               <li>
-                <a className="bold" onClick={(event) => this.mouseClick(event, "all")}>All</a>
+                <a className="bold" onClick={(event) => this.mouseClick(event, "all")}>所有模型</a>
               </li>
+{/*              
               <li>
                 <a onClick={(event) => this.mouseClick(event, "recognition")}>Recognition</a>
               </li>
@@ -129,11 +135,16 @@ class ModelZoo extends React.Component {
               <li>
                 <a onClick={(event) => this.mouseClick(event, "vqa")}>VQA</a>
               </li>
+*/}
             </ul>
           </div>
         </div>
       <div id="page-content-wrapper">
         <div className="row" ref="ContentPage">
+          <div ref="mymodels">
+            <ModelElement importNet={this.props.importNet} framework="keras" id="imdb_cnn_lstm" displayName="IMDB CNN LSTM"> </ModelElement>
+          </div>
+{/*
           <div ref="recognition">
             <ModelElement importNet={this.props.importNet} framework="caffe" id="lenet" displayName="MNIST LeNet"> </ModelElement>
             <ModelElement importNet={this.props.importNet} framework="caffe" id="cifar10_full" displayName="Cifar10 CNN"> </ModelElement>
@@ -178,6 +189,7 @@ class ModelZoo extends React.Component {
             <ModelElement importNet={this.props.importNet} framework="keras" id="VQA2" displayName="VQA2"> </ModelElement>
             <ModelElement importNet={this.props.importNet} framework="caffe" id="mlpVQA" displayName="VQS"> </ModelElement>
           </div>
+*/}
         </div>
       </div>
     </div>
