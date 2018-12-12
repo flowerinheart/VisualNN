@@ -48,6 +48,7 @@ constraintMap = {
 
 # ********** Data Layers **********
 def data(layer, layer_in, layerId):
+    # print(str(layer))
     out = {layerId: Input(layer['shape']['output']
                           [1:] + layer['shape']['output'][:1])}
     return out
@@ -97,6 +98,8 @@ def dense(layer, layer_in, layerId, tensor=True):
 
 
 def activation(layer, layer_in, layerId, tensor=True):
+    print("activation")
+    print(str(layer))
     out = {}
     if (layer['info']['type'] == 'ReLU'):
         if ('negative_slope' in layer['params'] and layer['params']['negative_slope'] != 0):
@@ -126,6 +129,7 @@ def activation(layer, layer_in, layerId, tensor=True):
     elif (layer['info']['type'] == 'Linear'):
         out[layerId] = Activation('linear')
     if tensor:
+        print(layer_in)
         out[layerId] = out[layerId](*layer_in)
     return out
 

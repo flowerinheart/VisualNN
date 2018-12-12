@@ -61,6 +61,7 @@ def export_keras_json(net, net_name, is_tf, reply_channel):
     net = yaml.safe_load(net)
     if net_name == '':
         net_name = 'Net'
+    print(net.keys())
 
     layer_map = {
         'ImageData': data,
@@ -113,6 +114,7 @@ def export_keras_json(net, net_name, is_tf, reply_channel):
     custom_layers_map = {
         'LRN': lrn
     }
+    #TODO check parameter
 
     # Remove any duplicate activation layers (timedistributed and bidirectional layers)
     redundant_layers = []
@@ -223,9 +225,9 @@ def export_keras_json(net, net_name, is_tf, reply_channel):
                 net_out.update(layer_map[net[layerId]['info']['type']](
                     net[layerId], layer_in, layerId, idNext, nextLayer))
             elif (net[layerId]['info']['type'] == 'Scale'):
-                type = net[net[layerId]['connection']
+                layer_type = net[net[layerId]['connection']
                            ['input'][0]]['info']['type']
-                if (type != 'BatchNorm'):
+                if (layer_type != 'BatchNorm'):
                     Channel(reply_channel).send({
                         'text': json.dumps({
                             'result': 'error',
@@ -247,7 +249,7 @@ def export_keras_json(net, net_name, is_tf, reply_channel):
             else:
                 if (net[layerId]['info']['type'] in layer_map):
                     net_out.update(layer_map[net[layerId]['info']['type']](
-                        net[layerId], layer_in, layerId))
+                        net[layerId], layer_in, layerId))  # no shape error
                 else:
                     error.append(
                         layerId + '(' + net[layerId]['info']['type'] + ')')
