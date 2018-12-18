@@ -88,7 +88,7 @@ class Pane extends React.Component {
                 className="panel-heading" role="tab"  onClick={() => this.toggleClass('data')}>
                     <a data-parent="#menu"  >
                     <span className="badge sidebar-badge" id="dataLayers"> </span>
-                      Data
+                      Data（数据）
                       <span className={this.state.data ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'}></span>
                     </a>
@@ -97,28 +97,28 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="ImageData_Button">Image Data</PaneElement>
+                      id="ImageData_Button">Image Data（图像数据）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Data_Button">Data</PaneElement>
+                      id="Data_Button">Data（数据）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="HDF5Data_Button">HDF5 Data</PaneElement>
+                      id="HDF5Data_Button">HDF5 Data（HDF5数据）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="HDF5Output_Button">HDF5 Output</PaneElement>
+                      id="HDF5Output_Button">HDF5 Output（HDF5输出）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Input_Button">Input</PaneElement>
+                      id="Input_Button">Input（输入）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="WindowData_Button">Window Data</PaneElement>
+                      id="WindowData_Button">Window Data（窗口数据）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="MemoryData_Button">Memory Data</PaneElement>
+                      id="MemoryData_Button">Memory Data（内存数据）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="DummyData_Button">Dummy Data</PaneElement>
+                      id="DummyData_Button">Dummy Data（虚拟数据）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
                       id="Python_Button">Python</PaneElement>
@@ -130,7 +130,7 @@ class Pane extends React.Component {
                 aria-expanded="false" aria-controls="vision" onClick={() => this.toggleClass('vision')}>
                     <a data-parent="#menu">
                     <span className="badge sidebar-badge" id="visionLayers"> </span>
-                      Vision
+                      Vision（视觉）
                       <span className={this.state.vision ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'} ></span>
                     </a>
@@ -139,28 +139,28 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Convolution_Button">Convolution</PaneElement>
+                      id="Convolution_Button">Convolution（卷积层）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Pooling_Button">Pool</PaneElement>
+                      id="Pooling_Button">Pool（池化层）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Upsample_Button">Upsample</PaneElement>
+                      id="Upsample_Button">Upsample（升采样）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="LocallyConnected_Button">Locally Connected</PaneElement>
+                      id="LocallyConnected_Button">Locally Connected（局部连接层）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Crop_Button">Crop</PaneElement>
+                      id="Crop_Button">Crop（裁剪）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="SPP_Button">SPP</PaneElement>
+                      id="SPP_Button">SPP（空间金字塔赤池化）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Deconvolution_Button">Deconvolution</PaneElement>
+                      id="Deconvolution_Button">Deconvolution（反卷积）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="DepthwiseConv_Button">Depthwise Convolution</PaneElement>
+                      id="DepthwiseConv_Button">Depthwise Convolution（深度卷积）</PaneElement>
                   </div>
                 </div>
               </div>
@@ -170,7 +170,7 @@ class Pane extends React.Component {
 
                     <a data-parent="#menu" >
                     <span className="badge sidebar-badge" id="recurrentLayers"> </span>
-                      Recurrent
+                      Recurrent（循环）
                       <span className={this.state.recurrent ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'} ></span>
                     </a>
@@ -179,16 +179,16 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Recurrent_Button">Recurrent</PaneElement>
+                      id="Recurrent_Button">Recurrent（循环层）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="RNN_Button">RNN</PaneElement>
+                      id="RNN_Button">RNN（循环神经网络）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="GRU_Button">GRU</PaneElement>
+                      id="GRU_Button">GRU（门控循环单元）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="LSTM_Button">LSTM</PaneElement>
+                      id="LSTM_Button">LSTM（长短期记忆网络）</PaneElement>
                   </div>
                 </div>
               </div>
@@ -198,7 +198,7 @@ class Pane extends React.Component {
 
                     <a  data-parent="#menu">
                     <span className="badge sidebar-badge" id="utilityLayers"> </span>
-                      Utility
+                      Utility（常用单元）
                       <span className={this.state.utility ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'}></span>
                     </a>
@@ -207,31 +207,31 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Flatten_Button">Flatten</PaneElement>
+                      id="Flatten_Button">Flatten（扁平化）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Reshape_Button">Reshape</PaneElement>
+                      id="Reshape_Button">Reshape（变形）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="BatchReindex_Button">Batch Reindex</PaneElement>
+                      id="BatchReindex_Button">Batch Reindex（批量重索引）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Split_Button">Split</PaneElement>
+                      id="Split_Button">Split（划分）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Concat_Button">Concat</PaneElement>
+                      id="Concat_Button">Concat（连结）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
                       id="Eltwise_Button">Eltwise</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Filter_Button">Filter</PaneElement>
+                      id="Filter_Button">Filter（过滤）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Reduction_Button">Reduction</PaneElement>
+                      id="Reduction_Button">Reduction（降维）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Silence_Button">Silence</PaneElement>
+                      id="Silence_Button">Silence（沉默）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
                       id="ArgMax_Button">ArgMax</PaneElement>
@@ -243,16 +243,16 @@ class Pane extends React.Component {
                       id="Permute_Button">Permute</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="RepeatVector_Button">Repeat Vector</PaneElement>
+                      id="RepeatVector_Button">Repeat Vector（重复向量）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Regularization_Button">Regularization</PaneElement>
+                      id="Regularization_Button">Regularization（正则化）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Masking_Button">Masking</PaneElement>
+                      id="Masking_Button">Masking（遮蔽）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Slice_Button">Slice</PaneElement>
+                      id="Slice_Button">Slice（切片）</PaneElement>
                   </div>
                 </div>
               </div>
@@ -261,7 +261,7 @@ class Pane extends React.Component {
                 className="panel-heading" role="tab" onClick={() => this.toggleClass('activation')}>
                     <a data-parent="#menu" >
                     <span className="badge sidebar-badge" id="activationLayers"> </span>
-                      Activation/Neuron
+                      Activation/Neuron（激活）
                       <span className={this.state.activation ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'} ></span>
                     </a>
@@ -333,7 +333,7 @@ class Pane extends React.Component {
                 aria-expanded="false" aria-controls="normalization" onClick={() => this.toggleClass('normalization')}>
                     <a  data-parent="#menu" >
                     <span className="badge sidebar-badge" id="normalizationLayers"> </span>
-                      Normalization
+                      Normalization（归一化）
                       <span className={this.state.normalization ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'} ></span>
                     </a>
@@ -342,13 +342,13 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="LRN_Button">LRN</PaneElement>
+                      id="LRN_Button">LRN（局部响应归一化）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="MVN_Button">MVN</PaneElement>
+                      id="MVN_Button">MVN（对比度实例归一化）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="BatchNorm_Button">Batch Norm</PaneElement>
+                      id="BatchNorm_Button">Batch Norm（批量归一化）</PaneElement>
                   </div>
                 </div>
               </div>
@@ -357,7 +357,7 @@ class Pane extends React.Component {
                 aria-controls="common" onClick={() => this.toggleClass('common')}>
                     <a data-parent="#menu">
                     <span className="badge sidebar-badge" id="commonLayers"> </span>
-                      Common
+                      Common（常规）
                       <span className={this.state.common ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'} ></span>
                     </a>
@@ -366,13 +366,13 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="InnerProduct_Button">Inner Product</PaneElement>
+                      id="InnerProduct_Button">Inner Product（全连接层）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Dropout_Button">Dropout</PaneElement>
+                      id="Dropout_Button">Dropout（舍弃）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Embed_Button">Embed</PaneElement>
+                      id="Embed_Button">Embed（嵌入）</PaneElement>
                   </div>
                 </div>
               </div>
@@ -382,7 +382,7 @@ class Pane extends React.Component {
 
                     <a data-parent="#menu" >
                     <span className="badge sidebar-badge" id="noiseLayers"> </span>
-                      Noise
+                      Noise（噪声）
 
                       <span className={this.state.noise ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'}></span>
@@ -392,10 +392,10 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="GaussianNoise_Button">Gaussian Noise</PaneElement>
+                      id="GaussianNoise_Button">Gaussian Noise（加性高斯噪声）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="GaussianDropout_Button">Gaussian Dropout</PaneElement>
+                      id="GaussianDropout_Button">Gaussian Dropout（乘性高斯噪声）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
                       id="AlphaDropout_Button">Alpha Dropout</PaneElement>
@@ -407,7 +407,7 @@ class Pane extends React.Component {
                 aria-controls="loss" onClick={() => this.toggleClass('loss')}>
                     <a  data-parent="#menu">
                     <span className="badge sidebar-badge" id="lossLayers"> </span>
-                      Loss
+                      Loss（损失）
                       <span className={this.state.loss ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'} ></span>
                     </a>
@@ -416,28 +416,28 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="MultinomialLogisticLoss_Button">Multinomial Logistic Loss</PaneElement>
+                      id="MultinomialLogisticLoss_Button">Multinomial Logistic Loss（多项逻辑损失）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="InfogainLoss_Button">Infogain Loss</PaneElement>
+                      id="InfogainLoss_Button">Infogain Loss（信息熵损失）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
                       id="SoftmaxWithLoss_Button">Softmax With Loss</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="EuclideanLoss_Button">Euclidean Loss</PaneElement>
+                      id="EuclideanLoss_Button">Euclidean Loss（欧式损失）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="HingeLoss_Button">Hinge Loss</PaneElement>
+                      id="HingeLoss_Button">Hinge Loss（铰链损失）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="SigmoidCrossEntropyLoss_Button">Sigmoid Cross Entropy Loss</PaneElement>
+                      id="SigmoidCrossEntropyLoss_Button">Sigmoid Cross Entropy Loss（互熵损失）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Accuracy_Button">Accuracy</PaneElement>
+                      id="Accuracy_Button">Accuracy（准确性）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="ContrastiveLoss_Button">Contrastive Loss</PaneElement>
+                      id="ContrastiveLoss_Button">Contrastive Loss（对比损失）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
                       id="Python_Button">Python</PaneElement>
@@ -449,7 +449,7 @@ class Pane extends React.Component {
                 aria-controls="wrapper" onClick={() => this.toggleClass('wrapper')}>
                     <a  data-parent="#menu">
                     <span className="badge sidebar-badge" id="wrapperLayers"> </span>
-                      Wrapper
+                      Wrapper（包装器）
                       <span className={this.state.wrapper ? 'glyphicon sidebar-dropdown glyphicon-menu-down':
                       'glyphicon sidebar-dropdown glyphicon-menu-right'} ></span>
                     </a>
@@ -458,10 +458,10 @@ class Pane extends React.Component {
                   <div className="panel-body">
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="TimeDistributed_Button">Time Distributed</PaneElement>
+                      id="TimeDistributed_Button">Time Distributed（时间分布包装器）</PaneElement>
                     <PaneElement setDraggingLayer={this.props.setDraggingLayer}
                       handleClick={this.props.handleClick}
-                      id="Bidirectional_Button">Bidirectional</PaneElement>
+                      id="Bidirectional_Button">Bidirectional（双向RNN包装器）</PaneElement>
                   </div>
                 </div>
               </div>
