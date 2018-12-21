@@ -688,6 +688,7 @@ class Content extends React.Component {
 
     }.bind(this));
   }
+  //TODO: unset caffe 
   importNet(framework, id) {
     this.dismissAllErrors();
     this.closeModal();
