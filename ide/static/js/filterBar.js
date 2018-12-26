@@ -20,7 +20,7 @@ changeEvent(cbid) {
       "LRN_Button", "Concat_Button", "Flatten_Button", "BatchNorm_Button", "Deconvolution_Button", "Sigmoid_Button", 
       "Softplus_Button", "Softsign_Button", "ELU_Button", "ReLU_Button", "Softmax_Button", "TanH_Button", "SELU_Button",
       "Dropout_Button", "Eltwise_Button"];
-
+{/*
       var caffeLayers = ["ImageData_Button", "HDF5Data_Button", "HDF5Output_Button", "Input_Button", "WindowData_Button",
       "MemoryData_Button", "DummyData_Button", "Convolution_Button", "Pooling_Button", "SPP_Button", "Deconvolution_Button",
       "Recurrent_Button", "RNN_Button", "LSTM_Button", "LRN_Button", "MVN_Button", "BatchNorm_Button",
@@ -31,15 +31,16 @@ changeEvent(cbid) {
       "Reduction_Button", "Silence_Button", "ArgMax_Button", "Softmax_Button", "MultinomialLogisticLoss_Button",
       "InfogainLoss_Button", "SoftmaxWithLoss_Button", "EuclideanLoss_Button", "HingeLoss_Button", "Slice_Button",
       "SigmoidCrossEntropyLoss_Button", "Accuracy_Button", "ContrastiveLoss_Button", "Data_Button", "Crop_Button"];
+*/}   
       var filterCheckBox_Keras = document.getElementById("filterCheckBox_Keras");
       var filterCheckBox_TensorFlow = document.getElementById("filterCheckBox_TensorFlow");
-      var filterCheckBox_Caffe = document.getElementById("filterCheckBox_Caffe");
+//      var filterCheckBox_Caffe = document.getElementById("filterCheckBox_Caffe");
       var visible = [];
 
     let checkBox = document.getElementById(cbid);
     checkBox.checked = !checkBox.checked;
 
-      if (filterCheckBox_Keras.checked == false & filterCheckBox_TensorFlow.checked == false & filterCheckBox_Caffe.checked == false) {
+      if (filterCheckBox_Keras.checked == false & filterCheckBox_TensorFlow.checked == false ) {
         for (let elem of $('.drowpdown-button')) {
         elem.classList.remove("hide");
         }            
@@ -50,9 +51,11 @@ changeEvent(cbid) {
       if (filterCheckBox_TensorFlow.checked == true) {
          visible = visible.concat(tensorFlowLayers);
       }
+{/*
       if (filterCheckBox_Caffe.checked == true) {
          visible = visible.concat(caffeLayers);
       }
+*/}
       
             for (let elem of $('.drowpdown-button')) {
                 for (let j = 0; j < visible.length; j++) {
@@ -92,14 +95,14 @@ changeEvent(cbid) {
                         <input type="checkBox" id="filterCheckBox_TensorFlow" onClick={this.changeEvent.bind(this, "filterCheckBox_TensorFlow")} />
                         </a>
                     </li>
-
+{/*
                     <li>
                         <a className="btn" onClick={this.changeEvent.bind(this, "filterCheckBox_Caffe")}>
                         <label className="filter">Caffe</label>
                         <input type="checkBox" id="filterCheckBox_Caffe" onClick={this.changeEvent.bind(this, "filterCheckBox_Caffe")} />
                         </a>
                     </li>
-
+*/}
                   </ul>
                 </div>
               </div>
