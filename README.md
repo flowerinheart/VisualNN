@@ -1,7 +1,7 @@
 VisualNN is an online collaborative platform to build, visualize and train deep learning models via a simple drag-and-drop interface. We build it based on Fabrik.
 It allows researchers to collectively develop and debug models using a web GUI that supports importing, editing and exporting networks to popular frameworks like Caffe, Keras, and TensorFlow.
 
-<img src="/example/fabrik_demo.gif?raw=true">
+<!-- <img src="/example/fabrik_demo.gif?raw=true"> -->
 
 <!-- This app is presently under active development and we welcome contributions. Please check out our [issues thread](https://github.com/Cloud-CV/IDE/issues) to find things to work on, or ping us on [Gitter](https://gitter.im/Cloud-CV/IDE). -->
 
