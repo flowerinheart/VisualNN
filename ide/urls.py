@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from views import index, calculate_parameter, fetch_layer_shape
 from views import load_from_db, save_to_db, fetch_model_history
+from views import upload_training_data
 
 urlpatterns = [
     url(r'^$', index),
@@ -17,6 +18,7 @@ urlpatterns = [
     url(r'^load*', load_from_db, name='loadDB'),
     url(r'^model_history', fetch_model_history, name='model-history'),
     url(r'^model_parameter/', calculate_parameter, name='calculate-parameter'),
-    url(r'^layer_parameter/', fetch_layer_shape, name='fetch-layer-shape')
+    url(r'^layer_parameter/', fetch_layer_shape, name='fetch-layer-shape'),
+    url(r'^upload_training_data',upload_training_data,name = 'upload_training_data')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

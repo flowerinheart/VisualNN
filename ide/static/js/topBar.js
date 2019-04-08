@@ -42,6 +42,21 @@ class TopBar extends React.Component {
     return (
       <div className="topBar">
         <div className="topbar-row">
+		
+		{/*Upload data*/}
+		<div className="topbar-col">
+			<div className="form-group">
+				<div className="dropdown">
+					<label htmlFor="uploadData" id="topbar-icon" className="btn btn-default dropdown-toggle form-control" 
+	data-tip="Upload data">
+	<span className="glyphicon glyphicon-upload" aria-hidden="true"></span> 
+					</label>
+					<input id="uploadData" type="file" onChange={() => this.props.uploadData()}/>
+				</div>
+			</div>
+		</div>
+		{/*Over*/}
+			
             <div className="topbar-col">
               <div className="form-group">
                   <div className="dropdown">
@@ -115,6 +130,7 @@ class TopBar extends React.Component {
 }
 
 TopBar.propTypes = {
+  uploadData: React.PropTypes.func,
   exportNet: React.PropTypes.func,
   importNet: React.PropTypes.func,
   saveDb: React.PropTypes.func,

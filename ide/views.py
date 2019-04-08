@@ -2,6 +2,8 @@ import copy
 import sys
 import yaml
 import json
+import os,paramiko,getpass
+
 
 from caffe_app.models import Network, NetworkVersion, NetworkUpdates
 from django.shortcuts import render
@@ -10,6 +12,12 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from utils.shapes import get_shapes, get_layer_shape, handle_concat_layer
 
+# Server Info
+HOST = '192.168.89.128'
+PORT = 6666
+#USERNAME = 'dks'
+#PASSWORD = 'nanjing8991'
+#SAVE_PATH = '/home/remote/'
 
 def index(request):
     return render(request, 'index.html')
@@ -84,6 +92,7 @@ def calculate_parameter(request):
 
 @csrf_exempt
 def save_to_db(request):
+    print("In function save_to_db")
     if request.method == 'POST':
         net = request.POST.get('net')
         net_name = request.POST.get('net_name')
@@ -254,3 +263,44 @@ def fetch_model_history(request):
                 'result': 'error',
                 'error': 'Unable to load model history'
             })
+
+
+def upload_file(hostname, port, username, password, src, dst):
+    client = paramiko.SSHClient()
+    client.load_system_host_keys()
+    t = paramiko.Transport((hostname,port))
+    t.connect(username = username, password = password)
+    sftp = paramiko.SFTPClient.from_transport(t)
+    sftp.put(src,dst)
+    sftp.close()
+    t.close()
+
+@csrf_exempt
+def upload_training_data(request):
+    print('In function upload_training_data.\n')
+    if request.method == 'POST':
+        try:
+            uploaded_file = request.FILES['file']
+            print(uploaded_file.size)
+            print(type(uploaded_file))
+            file_name = uploaded_file.name
+            print(file_name)
+            file_data = uploaded_file.read()    # read the file as bytes data
+
+
+            #print(file_data)
+            #save_path = SAVE_PATH + file_name
+            #upload_file(HOSTNAME,PORT,USERNAME,PASSWORD,file_name,save_path)
+            return JsonResponse({
+                'result': 'success'
+            })
+        except Exception, e:
+            print(e)
+            return JsonResponse({
+                'result': 'error',
+                'error': 'Fail to upload files'
+            })
+
+
+
+
