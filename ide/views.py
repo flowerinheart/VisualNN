@@ -1,23 +1,10 @@
-import copy
-import sys
-import yaml
-import json
-import os,paramiko,getpass
-
-
+import os
 from caffe_app.models import Network, NetworkVersion, NetworkUpdates
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from utils.shapes import get_shapes, get_layer_shape, handle_concat_layer
-
-# Server Info
-HOST = '192.168.89.128'
-PORT = 6666
-#USERNAME = 'dks'
-#PASSWORD = 'nanjing8991'
-#SAVE_PATH = '/home/remote/'
 
 def index(request):
     return render(request, 'index.html')
@@ -265,32 +252,23 @@ def fetch_model_history(request):
             })
 
 
-def upload_file(hostname, port, username, password, src, dst):
-    client = paramiko.SSHClient()
-    client.load_system_host_keys()
-    t = paramiko.Transport((hostname,port))
-    t.connect(username = username, password = password)
-    sftp = paramiko.SFTPClient.from_transport(t)
-    sftp.put(src,dst)
-    sftp.close()
-    t.close()
-
 @csrf_exempt
 def upload_training_data(request):
     print('In function upload_training_data.\n')
     if request.method == 'POST':
         try:
+            dir_path = 'data/train'
+            folder = os.path.exists(dir_path)
+            if not folder:
+                os.makedirs(dir_path)            
             uploaded_file = request.FILES['file']
-            print(uploaded_file.size)
-            print(type(uploaded_file))
             file_name = uploaded_file.name
-            print(file_name)
-            file_data = uploaded_file.read()    # read the file as bytes data
-
-
-            #print(file_data)
-            #save_path = SAVE_PATH + file_name
-            #upload_file(HOSTNAME,PORT,USERNAME,PASSWORD,file_name,save_path)
+            save_path = dir_path + '/' + file_name
+            print(save_path)
+            with open(save_path, 'wb+') as destination:
+                for chunk in uploaded_file.chunks():
+                    destination.write(chunk)
+            
             return JsonResponse({
                 'result': 'success'
             })
