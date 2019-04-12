@@ -254,21 +254,21 @@ def fetch_model_history(request):
 
 @csrf_exempt
 def upload_training_data(request):
-    print('In function upload_training_data.\n')
+    #print('In function upload_training_data.\n')
     if request.method == 'POST':
         try:
-            dir_path = 'data/train'
+            home_path = os.environ['HOME']
+            dir_path = home_path + '/.VisualNN'
             folder = os.path.exists(dir_path)
             if not folder:
                 os.makedirs(dir_path)            
             uploaded_file = request.FILES['file']
             file_name = uploaded_file.name
             save_path = dir_path + '/' + file_name
-            print(save_path)
+            print("Uploading file %s to %s"%(file_name, save_path))
             with open(save_path, 'wb+') as destination:
                 for chunk in uploaded_file.chunks():
-                    destination.write(chunk)
-            
+                    destination.write(chunk) 
             return JsonResponse({
                 'result': 'success'
             })
