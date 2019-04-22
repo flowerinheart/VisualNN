@@ -764,14 +764,11 @@ class Content extends React.Component {
   }
 //upload data
   uploadData(){
-//	window.alert("upload data");
 	this.dismissAllErrors();
 
 	const formData=new FormData();
 	formData.append("file",$("#uploadData")[0].files[0]);
 
-//	window.alert(formData.get("file"));
-	
 	$.ajax({
 		url: '/upload_training_data',
 		dataType: 'json',
