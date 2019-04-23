@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from utils.shapes import get_shapes, get_layer_shape, handle_concat_layer
+import Train
 
 def index(request):
     return render(request, 'index.html')
@@ -261,7 +262,7 @@ def upload_training_data(request):
     if request.method == 'POST':
         try:
             home_path = os.environ['HOME']
-            dir_path = home_path + '/.VisualNN'
+            dir_path = home_path + '/.VisualNN/data'
             folder = os.path.exists(dir_path)
             if not folder:
                 os.makedirs(dir_path)            
@@ -280,6 +281,30 @@ def upload_training_data(request):
             return JsonResponse({
                 'result': 'error',
                 'error': 'Fail to upload files'
+            })
+
+@csrf_exempt
+def start_training(request):
+    if request.method == 'GET':
+        try:
+            print("start training...")
+            home_path = os.environ['HOME']
+            model_path = home_path + "/.VisualNN/model/mnist.json"
+            data_path = home_path + "/.VisualNN/data/mnist.npz"
+            result_path = "result.h5"
+            #command = "python run.py"
+            #command = "python train.py ~/.VisualNN/model/mnist.json ~/.VisualNN/data/mnist.npz result.h5"
+            #os.system(command)
+            Train.trainModel(model_path, data_path, result_path)
+
+            return JsonResponse({
+                'result': 'success'
+            })
+        except Exception, e:
+            print(e)
+            return JsonResponse({
+                'result': 'error',
+                'error': 'Fail to start training'
             })
 
 

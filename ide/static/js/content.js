@@ -60,9 +60,9 @@ class Content extends React.Component {
       randomUserId: null,
       highlightColor: '#000000'
     };
-	{/*upload data*/}
-    this.uploadData=this.uploadData.bind(this);
-	{/*Over*/}
+    
+    this.uploadData=this.uploadData.bind(this);			{/*upload data*/}
+    this.startTraining = this.startTraining.bind(this);		{/*start training*/}
     this.addNewLayer = this.addNewLayer.bind(this);
     this.changeSelectedLayer = this.changeSelectedLayer.bind(this);
     this.changeHoveredLayer = this.changeHoveredLayer.bind(this);
@@ -789,6 +789,25 @@ class Content extends React.Component {
 	});
   }
 //over
+//startTraining
+  startTraining(){
+	this.dismissAllErrors();
+	$.ajax({
+		type: 'GET',
+		url: '/start_training',
+		success: function (response){
+			if (response.result == 'success'){
+				window.alert("Training process starts successfully...");
+			}else if(response.result == 'error'){
+				this.addError(response.error);
+			}
+		}.bind(this),
+		error : function (){
+			this.addError("Error");
+		}.bind(this)
+	});
+  }
+//over
   initialiseImportedNet(net,net_name) {
     // this line will unmount all the layers
     // so that the new imported layers will all be mounted again
@@ -1342,7 +1361,11 @@ class Content extends React.Component {
              />
              
              <div className="text-center">
-             <Tabs selectedPhase={this.state.selectedPhase} changeNetPhase={this.changeNetPhase} />
+		<Tabs
+		selectedPhase={this.state.selectedPhase} 
+		changeNetPhase={this.changeNetPhase} 
+		startTraining={this.startTraining}
+		/>
              </div>
              <h5 className="sidebar-heading">插入网络层</h5>
              <div className="sidebar-heading">
