@@ -1,15 +1,10 @@
-import copy
-import sys
-import yaml
-import json
-
+import os
 from caffe_app.models import Network, NetworkVersion, NetworkUpdates
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from utils.shapes import get_shapes, get_layer_shape, handle_concat_layer
-
 
 def index(request):
     return render(request, 'index.html')
@@ -84,6 +79,7 @@ def calculate_parameter(request):
 
 @csrf_exempt
 def save_to_db(request):
+    print("In function save_to_db")
     if request.method == 'POST':
         net = request.POST.get('net')
         net_name = request.POST.get('net_name')
@@ -254,3 +250,35 @@ def fetch_model_history(request):
                 'result': 'error',
                 'error': 'Unable to load model history'
             })
+
+
+@csrf_exempt
+def upload_training_data(request):
+    #print('In function upload_training_data.\n')
+    if request.method == 'POST':
+        try:
+            home_path = os.environ['HOME']
+            dir_path = home_path + '/.VisualNN'
+            folder = os.path.exists(dir_path)
+            if not folder:
+                os.makedirs(dir_path)            
+            uploaded_file = request.FILES['file']
+            file_name = uploaded_file.name
+            save_path = dir_path + '/' + file_name
+            print("Uploading file %s to %s"%(file_name, save_path))
+            with open(save_path, 'wb+') as destination:
+                for chunk in uploaded_file.chunks():
+                    destination.write(chunk) 
+            return JsonResponse({
+                'result': 'success'
+            })
+        except Exception, e:
+            print(e)
+            return JsonResponse({
+                'result': 'error',
+                'error': 'Fail to upload files'
+            })
+
+
+
+

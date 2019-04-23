@@ -60,6 +60,9 @@ class Content extends React.Component {
       randomUserId: null,
       highlightColor: '#000000'
     };
+	{/*upload data*/}
+    this.uploadData=this.uploadData.bind(this);
+	{/*Over*/}
     this.addNewLayer = this.addNewLayer.bind(this);
     this.changeSelectedLayer = this.changeSelectedLayer.bind(this);
     this.changeHoveredLayer = this.changeHoveredLayer.bind(this);
@@ -759,6 +762,36 @@ class Content extends React.Component {
       }.bind(this)
     });
   }
+//upload data
+  uploadData(){
+//	window.alert("upload data");
+	this.dismissAllErrors();
+
+	const formData=new FormData();
+	formData.append("file",$("#uploadData")[0].files[0]);
+
+//	window.alert(formData.get("file"));
+	
+	$.ajax({
+		url: '/upload_training_data',
+		dataType: 'json',
+		type: 'POST',
+		data: formData,
+		processData: false,
+		contentType: false,
+		success : function (response){
+			if (response.result == 'success'){
+				window.alert("Success to upload data");
+			} else if (response.result == 'error'){
+				this.addError(response.error);
+			}
+		}.bind(this),
+		error : function (){
+			this.addError("Error");
+		}.bind(this)
+	});
+  }
+//over
   initialiseImportedNet(net,net_name) {
     // this line will unmount all the layers
     // so that the new imported layers will all be mounted again
@@ -1301,6 +1334,7 @@ class Content extends React.Component {
           <div id="sidebar-scroll" className="col-md-12">
              <h5 className="sidebar-heading">操作</h5>
              <TopBar
+              uploadData={this.uploadData}
               exportNet={this.exportNet}
               importNet={this.importNet}
               saveDb={this.saveDb}

@@ -120,3 +120,9 @@ CHANNEL_LAYERS = {
 }
 
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+]
+

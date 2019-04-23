@@ -1,0 +1,1969 @@
+{
+    "class_name": "Model", 
+    "keras_version": "2.0.8", 
+    "config": {
+        "layers": [
+            {
+                "class_name": "InputLayer", 
+                "inbound_nodes": [], 
+                "config": {
+                    "dtype": "float32", 
+                    "batch_input_shape": [
+                        null, 
+                        448, 
+                        448, 
+                        3
+                    ], 
+                    "name": "input_1", 
+                    "sparse": false
+                }, 
+                "name": "input_1"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "input_1", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_1", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        2, 
+                        2
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 64, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        7, 
+                        7
+                    ]
+                }, 
+                "name": "conv2d_1"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_1", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_1"
+                }, 
+                "name": "leaky_re_lu_1"
+            }, 
+            {
+                "class_name": "MaxPooling2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_1", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "name": "max_pooling2d_1", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "pool_size": [
+                        2, 
+                        2
+                    ], 
+                    "padding": "same", 
+                    "strides": [
+                        2, 
+                        2
+                    ]
+                }, 
+                "name": "max_pooling2d_1"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "max_pooling2d_1", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_2", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 192, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_2"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_2", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_2"
+                }, 
+                "name": "leaky_re_lu_2"
+            }, 
+            {
+                "class_name": "MaxPooling2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_2", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "name": "max_pooling2d_2", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "pool_size": [
+                        2, 
+                        2
+                    ], 
+                    "padding": "same", 
+                    "strides": [
+                        2, 
+                        2
+                    ]
+                }, 
+                "name": "max_pooling2d_2"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "max_pooling2d_2", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_3", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 128, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_3"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_3", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_3"
+                }, 
+                "name": "leaky_re_lu_3"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_3", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_4", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 256, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_4"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_4", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_4"
+                }, 
+                "name": "leaky_re_lu_4"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_4", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_5", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 256, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_5"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_5", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_5"
+                }, 
+                "name": "leaky_re_lu_5"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_5", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_6", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_6"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_6", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_6"
+                }, 
+                "name": "leaky_re_lu_6"
+            }, 
+            {
+                "class_name": "MaxPooling2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_6", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "name": "max_pooling2d_3", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "pool_size": [
+                        2, 
+                        2
+                    ], 
+                    "padding": "same", 
+                    "strides": [
+                        2, 
+                        2
+                    ]
+                }, 
+                "name": "max_pooling2d_3"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "max_pooling2d_3", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_7", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 256, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_7"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_7", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_7"
+                }, 
+                "name": "leaky_re_lu_7"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_7", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_8", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_8"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_8", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_8"
+                }, 
+                "name": "leaky_re_lu_8"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_8", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_9", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 256, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_9"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_9", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_9"
+                }, 
+                "name": "leaky_re_lu_9"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_9", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_10", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_10"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_10", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_10"
+                }, 
+                "name": "leaky_re_lu_10"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_10", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_11", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 256, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_11"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_11", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_11"
+                }, 
+                "name": "leaky_re_lu_11"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_11", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_12", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_12"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_12", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_12"
+                }, 
+                "name": "leaky_re_lu_12"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_12", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_13", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 256, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_13"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_13", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_13"
+                }, 
+                "name": "leaky_re_lu_13"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_13", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_14", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_14"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_14", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_14"
+                }, 
+                "name": "leaky_re_lu_14"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_14", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_15", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_15"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_15", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_15"
+                }, 
+                "name": "leaky_re_lu_15"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_15", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_16", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 1024, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_16"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_16", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_16"
+                }, 
+                "name": "leaky_re_lu_16"
+            }, 
+            {
+                "class_name": "MaxPooling2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_16", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "name": "max_pooling2d_4", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "pool_size": [
+                        2, 
+                        2
+                    ], 
+                    "padding": "same", 
+                    "strides": [
+                        2, 
+                        2
+                    ]
+                }, 
+                "name": "max_pooling2d_4"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "max_pooling2d_4", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_17", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_17"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_17", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_17"
+                }, 
+                "name": "leaky_re_lu_17"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_17", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_18", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 1024, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_18"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_18", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_18"
+                }, 
+                "name": "leaky_re_lu_18"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_18", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_19", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 512, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        1, 
+                        1
+                    ]
+                }, 
+                "name": "conv2d_19"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_19", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_19"
+                }, 
+                "name": "leaky_re_lu_19"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_19", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_20", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 1024, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_20"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_20", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_20"
+                }, 
+                "name": "leaky_re_lu_20"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_20", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_21", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 1024, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_21"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_21", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_21"
+                }, 
+                "name": "leaky_re_lu_21"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_21", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_22", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        2, 
+                        2
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 1024, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_22"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_22", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_22"
+                }, 
+                "name": "leaky_re_lu_22"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_22", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_23", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 1024, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_23"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_23", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_23"
+                }, 
+                "name": "leaky_re_lu_23"
+            }, 
+            {
+                "class_name": "Conv2D", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_23", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "conv2d_24", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "data_format": "channels_last", 
+                    "padding": "same", 
+                    "strides": [
+                        1, 
+                        1
+                    ], 
+                    "dilation_rate": [
+                        1, 
+                        1
+                    ], 
+                    "kernel_regularizer": null, 
+                    "filters": 1024, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "use_bias": true, 
+                    "activity_regularizer": null, 
+                    "kernel_size": [
+                        3, 
+                        3
+                    ]
+                }, 
+                "name": "conv2d_24"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "conv2d_24", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_24"
+                }, 
+                "name": "leaky_re_lu_24"
+            }, 
+            {
+                "class_name": "Flatten", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_24", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "trainable": true, 
+                    "name": "flatten_1"
+                }, 
+                "name": "flatten_1"
+            }, 
+            {
+                "class_name": "Dense", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "flatten_1", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "dense_1", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "kernel_regularizer": null, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "units": 4096, 
+                    "use_bias": true, 
+                    "activity_regularizer": null
+                }, 
+                "name": "dense_1"
+            }, 
+            {
+                "class_name": "LeakyReLU", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "dense_1", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "alpha": 0.10000000149011612, 
+                    "trainable": true, 
+                    "name": "leaky_re_lu_25"
+                }, 
+                "name": "leaky_re_lu_25"
+            }, 
+            {
+                "class_name": "Dense", 
+                "inbound_nodes": [
+                    [
+                        [
+                            "leaky_re_lu_25", 
+                            0, 
+                            0, 
+                            {}
+                        ]
+                    ]
+                ], 
+                "config": {
+                    "kernel_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "name": "dense_2", 
+                    "kernel_constraint": null, 
+                    "bias_regularizer": null, 
+                    "bias_constraint": null, 
+                    "activation": "linear", 
+                    "trainable": true, 
+                    "kernel_regularizer": null, 
+                    "bias_initializer": {
+                        "class_name": "Constant", 
+                        "config": {
+                            "value": 0
+                        }
+                    }, 
+                    "units": 1470, 
+                    "use_bias": true, 
+                    "activity_regularizer": null
+                }, 
+                "name": "dense_2"
+            }
+        ], 
+        "input_layers": [
+            [
+                "input_1", 
+                0, 
+                0
+            ]
+        ], 
+        "name": "YOLONet", 
+        "output_layers": [
+            [
+                "dense_2", 
+                0, 
+                0
+            ]
+        ]
+    }, 
+    "backend": "tensorflow"
+}
