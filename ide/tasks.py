@@ -58,6 +58,7 @@ def export_caffe_prototxt(self, net, net_name, reply_channel):
 
 @task(name="export_to_keras")
 def export_keras_json(net, net_name, is_tf, reply_channel):
+    print("In function export_keras_json")
     net = yaml.safe_load(net)
     if net_name == '':
         net_name = 'Net'
@@ -289,6 +290,10 @@ def export_keras_json(net, net_name, is_tf, reply_channel):
     json_string = Model.to_json(model)
 
     randomId = datetime.now().strftime('%Y%m%d%H%M%S') + randomword(5)
+    # save Id index in one line
+    with open(BASE_DIR + '/media/randomIndex.txt', 'a+') as f:
+        f.write(str(randomId) + '\n')
+
     with open(BASE_DIR + '/media/' + randomId + '.json', 'w') as f:
         json.dump(json.loads(json_string), f, indent=4)
 
