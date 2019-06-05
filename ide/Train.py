@@ -5,7 +5,7 @@ from keras.utils import np_utils
 from keras.optimizers import RMSprop
 
 batch_size = 128
-epochs = 20
+epochs = 5
 def load(path):
     f = np.load(path)
     x_train, y_train = f['x_train'], f['y_train']
@@ -21,9 +21,7 @@ def buildModel(modelPath):
     return model
 
 def trainModel(model_path, data_path, result_path):
-    #model = buildModel(sys.argv[1])
     model = buildModel(model_path)
-    #(x_train, y_train), (x_test, y_test) = load(sys.argv[2])
     (x_train, y_train), (x_test, y_test) = load(data_path)
     print(x_train[0].shape)
     x_train = np.reshape(x_train,(60000, 784))
@@ -42,7 +40,6 @@ def trainModel(model_path, data_path, result_path):
     score = model.evaluate(x_test, y_test, verbose=0)
     print('Test loss:', score[0])
     print('Test accuracy:', score[1])
-    #model.save_weights(sys.argv[3])
-    model.save_weight(result_path)
+    model.save(result_path)
 
 

@@ -121,6 +121,7 @@ def ws_receive(message):
         # get the net object on which update is made
         #print(networkId)
         #print("type of networkId: %s"%(type(networkId)))
+        """
         netObj = Network.objects.get(id=int(networkId))
         network_version = fetch_network_version(netObj)
 
@@ -130,3 +131,5 @@ def ws_receive(message):
         network_update.save()
 
         Group('model-{0}'.format(networkId)).send(group_data)
+        """
+        pass
