@@ -60,9 +60,9 @@ class Content extends React.Component {
       randomUserId: null,
       highlightColor: '#000000'
     };
-	{/*upload data*/}
-    this.uploadData=this.uploadData.bind(this);
-	{/*Over*/}
+    
+    this.uploadData=this.uploadData.bind(this);			{/*upload data*/}
+    this.startTraining = this.startTraining.bind(this);		{/*start training*/}
     this.addNewLayer = this.addNewLayer.bind(this);
     this.changeSelectedLayer = this.changeSelectedLayer.bind(this);
     this.changeHoveredLayer = this.changeHoveredLayer.bind(this);
@@ -764,14 +764,11 @@ class Content extends React.Component {
   }
 //upload data
   uploadData(){
-//	window.alert("upload data");
 	this.dismissAllErrors();
 
 	const formData=new FormData();
 	formData.append("file",$("#uploadData")[0].files[0]);
 
-//	window.alert(formData.get("file"));
-	
 	$.ajax({
 		url: '/upload_training_data',
 		dataType: 'json',
@@ -783,6 +780,25 @@ class Content extends React.Component {
 			if (response.result == 'success'){
 				window.alert("Success to upload data");
 			} else if (response.result == 'error'){
+				this.addError(response.error);
+			}
+		}.bind(this),
+		error : function (){
+			this.addError("Error");
+		}.bind(this)
+	});
+  }
+//over
+//startTraining
+  startTraining(){
+	this.dismissAllErrors();
+	$.ajax({
+		type: 'GET',
+		url: '/start_training',
+		success: function (response){
+			if (response.result == 'success'){
+				window.alert("Training process starts successfully...");
+			}else if(response.result == 'error'){
 				this.addError(response.error);
 			}
 		}.bind(this),
@@ -1345,7 +1361,11 @@ class Content extends React.Component {
              />
              
              <div className="text-center">
-             <Tabs selectedPhase={this.state.selectedPhase} changeNetPhase={this.changeNetPhase} />
+		<Tabs
+		selectedPhase={this.state.selectedPhase} 
+		changeNetPhase={this.changeNetPhase} 
+		startTraining={this.startTraining}
+		/>
              </div>
              <h5 className="sidebar-heading">插入网络层</h5>
              <div className="sidebar-heading">

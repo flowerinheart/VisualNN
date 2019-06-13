@@ -23,7 +23,7 @@ class Tabs extends React.Component {
     }
     return (
       <li className="btn-group" role="group" id="phaseTabs">
-        <button type="button" id="train" className={"btn "+trainClass}>训练</button>
+        <button type="button" id="train" className={"btn "+trainClass} onClick={() => this.props.startTraining()}>训练</button>
         <button type="button" id="test" className={"btn "+testClass}>测试</button>
       </li>
     );
@@ -31,6 +31,7 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
+  startTraining: React.PropTypes.func,
   changeNetPhase: React.PropTypes.func,
   selectedPhase: React.PropTypes.number
 };

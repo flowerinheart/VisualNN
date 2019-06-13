@@ -1,10 +1,14 @@
 import os
+import sys
+import yaml
+import json
 from caffe_app.models import Network, NetworkVersion, NetworkUpdates
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from utils.shapes import get_shapes, get_layer_shape, handle_concat_layer
+import Train
 
 def index(request):
     return render(request, 'index.html')
@@ -258,12 +262,17 @@ def upload_training_data(request):
     if request.method == 'POST':
         try:
             home_path = os.environ['HOME']
-            dir_path = home_path + '/.VisualNN'
+            # save current data file name in dataIndex.txt
+            index_file_path = home_path + '/.VisualNN/data/dataIndex.txt'
+            uploaded_file = request.FILES['file']
+            file_name = uploaded_file.name
+            with open(index_file_path, 'a+') as f:
+                f.write(file_name + '\n')
+            # save data file
+            dir_path = home_path + '/.VisualNN/data'
             folder = os.path.exists(dir_path)
             if not folder:
                 os.makedirs(dir_path)            
-            uploaded_file = request.FILES['file']
-            file_name = uploaded_file.name
             save_path = dir_path + '/' + file_name
             print("Uploading file %s to %s"%(file_name, save_path))
             with open(save_path, 'wb+') as destination:
@@ -277,6 +286,51 @@ def upload_training_data(request):
             return JsonResponse({
                 'result': 'error',
                 'error': 'Fail to upload files'
+            })
+
+@csrf_exempt
+def start_training(request):
+    if request.method == 'GET':
+        try:
+            print("start training...")
+            home_path = os.environ['HOME']
+            # get current model path
+            index_file_path = home_path + "/VisualNN/media/randomIndex.txt"
+            f = open(index_file_path, 'r')
+            cur_model_name = f.readlines()[-1][:-1] + '.json'
+            model_path = home_path + "/VisualNN/media/" + cur_model_name
+            print("Current model file path: %s"%(model_path))
+
+            # get current data file path
+            data_index_file_path = home_path + "/.VisualNN/data/dataIndex.txt"
+            ff = open(data_index_file_path, 'r')
+            cur_data_file_name = ff.readlines()[-1][:-1]
+            data_path = home_path + "/.VisualNN/data/" + cur_data_file_name
+            print("Current data file path: %s"%(data_path))
+
+            # get result file path
+            result_path = home_path + "/.VisualNN/result"
+            folder = os.path.exists(result_path)
+            if not folder:
+                os.makedirs(result_path)
+            result_file_path = result_path + "/" + cur_data_file_name.split(".")[0] + ".h5"
+            print("Current result file path: %s"%(result_file_path))
+
+            #command = "python run.py"
+            #command = "python train.py ~/.VisualNN/model/mnist.json ~/.VisualNN/data/mnist.npz result.h5"
+            #os.system(command)
+            
+            # call training function 
+            Train.trainModel(model_path, data_path, result_file_path)
+
+            return JsonResponse({
+                'result': 'success'
+            })
+        except Exception, e:
+            print("Error in start training!")
+            return JsonResponse({
+                'result': 'error',
+                'error': 'Fail to start training'
             })
 
 
