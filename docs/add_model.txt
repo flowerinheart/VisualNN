@@ -1,0 +1,4 @@
+1. load_data.py   注册添加函数
+2. preprocessing.py 注册预处理函数
+3. ide/static/js/zoo.js 添加模型注册
+4. ide/static/js/img/zoo/  添加模型图片
