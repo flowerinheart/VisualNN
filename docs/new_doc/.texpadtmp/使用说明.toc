@@ -1,0 +1,30 @@
+\contentsline {part}{第一部分\hspace {1em}VisualNN界面介绍}{1}{part.1}
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}主体界面}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}工具栏介绍}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}model zoo}{4}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}load from text}{4}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}export功能}{5}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}import功能}{5}{subsection.1.1.4}
+\contentsline {section}{\numberline {1.2}神经网络组件}{6}{section.1.2}
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}神经网络组件}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}数据层(Data)}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}视觉层(vision)}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}循环层（Recurrent）}{11}{section.2.3}
+\contentsline {section}{\numberline {2.4}常用单元（Utility）}{12}{section.2.4}
+\contentsline {section}{\numberline {2.5}激活层（Activation/Neuron）}{14}{section.2.5}
+\contentsline {section}{\numberline {2.6}归一化层（Normalization）}{16}{section.2.6}
+\contentsline {section}{\numberline {2.7} 常规层（Common）}{16}{section.2.7}
+\contentsline {section}{\numberline {2.8} 噪声层（Noise）}{17}{section.2.8}
+\contentsline {section}{\numberline {2.9} 包装器层（Wrapper）}{18}{section.2.9}
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}内置网络模型}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}DNN}{20}{section.3.1}
+\contentsline {section}{\numberline {3.2}CNN}{20}{section.3.2}
+\contentsline {section}{\numberline {3.3}LSTM}{22}{section.3.3}
+\contentsline {section}{\numberline {3.4}AlexNet}{23}{section.3.4}
+\contentsline {section}{\numberline {3.5}VGG}{24}{section.3.5}
+\contentsline {part}{第二部分\hspace {1em}使用说明}{27}{part.2}
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}mnist用例}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}构建网络结构}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}导出模型}{31}{section.4.2}
+\contentsline {section}{\numberline {4.3}运行训练脚本}{32}{section.4.3}
+\contentsline {section}{\numberline {4.4}模型测试}{33}{section.4.4}
