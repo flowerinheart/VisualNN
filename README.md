@@ -5,6 +5,7 @@ It allows researchers to collectively develop and debug models using a web GUI t
 
 <!-- This app is presently under active development and we welcome contributions. Please check out our [issues thread](https://github.com/Cloud-CV/IDE/issues) to find things to work on, or ping us on [Gitter](https://gitter.im/Cloud-CV/IDE). -->
 
+pandoc --latex-engine=xelatex -V mainfont=SimSun --template=pm-template.latex 组件介绍.md -o temp.pdf
 
 ## Installation Instructions
 
